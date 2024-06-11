@@ -4,7 +4,7 @@
     sys_arch: "{{ 'amd64' if ansible_facts['architecture'] == 'x86_64' \
       else ansible_facts['architecture'] }}"
 
-- name: Include oc_clients.yml
+- name: Include openshift.yml
   ansible.builtin.include_tasks:
     file: openshift.yml
 
