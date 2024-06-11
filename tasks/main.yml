@@ -1,8 +1,4 @@
 ---
-- name: Include assert.yml
-  ansible.builtin.include_tasks:
-    file: assert.yml
-
 - name: Set architecture
   ansible.builtin.set_fact:
     sys_arch: "{{ 'amd64' if ansible_facts['architecture'] == 'x86_64' \
