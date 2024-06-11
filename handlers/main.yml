@@ -1,0 +1,34 @@
+---
+# handlers file for ocp_client
+
+- name: Install oc bash completion
+  changed_when: true
+  ansible.builtin.shell:
+    cmd: "oc completion bash > /etc/bash_completion.d/oc"
+
+- name: Install openshift-install bash completion
+  changed_when: true
+  ansible.builtin.shell:
+    cmd: >
+      "openshift-install completion bash >
+      /etc/bash_completion.d/openshift-install"
+
+- name: Install opm bash completion
+  changed_when: true
+  ansible.builtin.shell:
+    cmd: "opm completion bash > /etc/bash_completion.d/opm"
+
+- name: Install oc-mirror bash completion
+  changed_when: true
+  ansible.builtin.shell:
+    cmd: "oc-mirror completion bash > /etc/bash_completion.d/oc-mirror"
+
+- name: Install helm bash completion
+  changed_when: true
+  ansible.builtin.shell:
+    cmd: "helm completion bash > /etc/bash_completion.d/helm"
+
+- name: Install noobaa bash completion
+  changed_when: true
+  ansible.builtin.shell:
+    cmd: "noobaa completion > /etc/bash_completion.d/noobaa"

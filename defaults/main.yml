@@ -1,0 +1,4 @@
+---
+oc_install_dir: /usr/local/bin
+helm_install_dir: /usr/local/bin
+noobaa_install_dir: /usr/local/bin

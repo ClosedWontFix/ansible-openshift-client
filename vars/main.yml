@@ -1,0 +1,5 @@
+---
+install_helm: true
+install_noobaa: false
+noobaa_version: '5.15.2'
+ocp_version: stable

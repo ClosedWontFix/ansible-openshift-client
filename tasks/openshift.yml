@@ -1,0 +1,50 @@
+---
+- name: Install oc client
+  notify: Install oc bash completion
+  ansible.builtin.unarchive:
+    src: "https://mirror.openshift.com/\
+          pub/openshift-v4/{{ sys_arch }}/clients/ocp/{{ ocp_version }}/\
+          openshift-client-{{ ansible_facts['system'] | lower }}.tar.gz"
+    dest: "{{ oc_install_dir }}"
+    exclude: README.md
+    owner: root
+    group: root
+    mode: '0755'
+    remote_src: true
+
+- name: Install openshift-install client
+  notify: Install openshift-install bash completion
+  ansible.builtin.unarchive:
+    src: "https://mirror.openshift.com/\
+          pub/openshift-v4/{{ sys_arch }}/clients/ocp/{{ ocp_version }}/\
+          openshift-install-{{ ansible_facts['system'] | lower }}.tar.gz"
+    dest: "{{ oc_install_dir }}"
+    exclude: README.md
+    owner: root
+    group: root
+    mode: '0755'
+    remote_src: true
+
+- name: Install opm client
+  notify: Install opm bash completion
+  ansible.builtin.unarchive:
+    src: "https://mirror.openshift.com/\
+          pub/openshift-v4/{{ sys_arch }}/clients/ocp/{{ ocp_version }}/\
+          opm-{{ ansible_facts['system'] | lower }}.tar.gz"
+    dest: "{{ oc_install_dir }}"
+    owner: root
+    group: root
+    mode: '0755'
+    remote_src: true
+
+- name: Install oc-mirror plugin
+  notify: Install oc-mirror bash completion
+  ansible.builtin.unarchive:
+    src: "https://mirror.openshift.com/\
+          pub/openshift-v4/{{ sys_arch }}/clients/ocp/{{ ocp_version }}/\
+          oc-mirror.tar.gz"
+    dest: "{{ oc_install_dir }}"
+    owner: root
+    group: root
+    mode: '0755'
+    remote_src: true
