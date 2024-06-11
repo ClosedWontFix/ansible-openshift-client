@@ -20,8 +20,8 @@
   notify: Install helm bash completion
   ansible.builtin.unarchive:
     src: "https://get.helm.sh/\
-          helm-v{{ helm_version }}-{{ ansible_facts['system'] | lower }}-\
-          {{ sys_arch }}.tar.gz"
+          helm-v{{ helm_latest_version.content | regex_replace('(^v|\\n$)', '') }}-\
+          {{ ansible_facts['system'] | lower }}-{{ sys_arch }}.tar.gz"
     dest: "{{ helm_install_dir }}"
     include:
       - "{{ ansible_facts['system'] | lower }}-amd64/helm"
